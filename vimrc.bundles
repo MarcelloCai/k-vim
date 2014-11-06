@@ -34,7 +34,7 @@ let g:syntastic_warning_symbol='>'
 let g:syntastic_check_on_open=1
 let g:syntastic_enable_highlighting = 0
 "let g:syntastic_python_checker="flake8,pyflakes,pep8,pylint"
-let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
+"let g:syntastic_python_checkers=['pyflakes'] " 使用pyflakes,速度比pylint快
 let g:syntastic_javascript_checkers = ['jsl', 'jshint']
 let g:syntastic_html_checkers=['tidy', 'jshint']
 highlight SyntasticErrorSign guifg=white guibg=black
@@ -44,36 +44,36 @@ highlight SyntasticErrorSign guifg=white guibg=black
 
 " 代码自动补全
 "迄今为止用到的最好的自动VIM自动补全插件
-Bundle 'Valloric/YouCompleteMe'
-"youcompleteme  默认tab  s-tab 和自动补全冲突
-"let g:ycm_key_list_select_completion=['<c-n>']
-let g:ycm_key_list_select_completion = ['<Down>']
-"let g:ycm_key_list_previous_completion=['<c-p>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
-let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
-let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
-"let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
-let g:ycm_collect_identifiers_from_tags_files = 1
-" 引入，可以补全系统，以及python的第三方包 针对新老版本YCM做了兼容
-" old version
-if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
-endif
-" new version
-if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
-    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
-endif
+"Bundle 'Valloric/YouCompleteMe'
+""youcompleteme  默认tab  s-tab 和自动补全冲突
+""let g:ycm_key_list_select_completion=['<c-n>']
+"let g:ycm_key_list_select_completion = ['<Down>']
+""let g:ycm_key_list_previous_completion=['<c-p>']
+"let g:ycm_key_list_previous_completion = ['<Up>']
+"let g:ycm_complete_in_comments = 1  "在注释输入中也能补全
+"let g:ycm_complete_in_strings = 1   "在字符串输入中也能补全
+"let g:ycm_collect_identifiers_from_comments_and_strings = 1   "注释和字符串中的文字也会被收入补全
+""let g:ycm_seed_identifiers_with_syntax=1   "语言关键字补全, 不过python关键字都很短，所以，需要的自己打开
+"let g:ycm_collect_identifiers_from_tags_files = 1
+"" 引入，可以补全系统，以及python的第三方包 针对新老版本YCM做了兼容
+"" old version
+"if !empty(glob("~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"))
+"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/cpp/ycm/.ycm_extra_conf.py"
+"endif
+"" new version
+"if !empty(glob("~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"))
+"    let g:ycm_global_ycm_extra_conf = "~/.vim/bundle/YouCompleteMe/third_party/ycmd/cpp/ycm/.ycm_extra_conf.py"
+"endif
 
 
-" 直接触发自动补全
-let g:ycm_key_invoke_completion = '<C-Space>'
-" 黑名单,不启用
-let g:ycm_filetype_blacklist = {
-      \ 'tagbar' : 1,
-      \ 'gitcommit' : 1,
-      \}
-
+"" 直接触发自动补全
+"let g:ycm_key_invoke_completion = '<C-Space>'
+"" 黑名单,不启用
+"let g:ycm_filetype_blacklist = {
+""      \ 'tagbar' : 1,
+""      \ 'gitcommit' : 1,
+""      \}
+"
 
 " 代码片段快速插入
 Bundle 'SirVer/ultisnips'
@@ -102,7 +102,6 @@ let g:closetag_html_style=1
 " 快速注释
 Bundle 'scrooloose/nerdcommenter'
 
-
 " 快速加入修改环绕字符
 Bundle 'tpope/vim-surround'
 " for repeat -> enhance surround.vim, . to repeat command
@@ -114,6 +113,10 @@ map <leader><space> :FixWhitespace<cr>
 
 " 快速赋值语句对齐
 Bundle 'godlygeek/tabular'
+" =>号对齐
+nmap <Leader>a, :Tabularize /=><CR>
+vmap <Leader>a, :Tabularize /=><CR>
+" =号对齐
 nmap <Leader>a= :Tabularize /=<CR>
 vmap <Leader>a= :Tabularize /=<CR>
 " :号也对齐
@@ -128,7 +131,7 @@ vmap <Leader>a: :Tabularize /:<CR>
 "更高效的移动 [,, + w/fx]
 Bundle 'Lokaltog/vim-easymotion'
 
-Bundle 'vim-scripts/matchit.zip'
+"Bundle 'vim-scripts/matchit.zip'
 
 " 显示marks - 方便自己进行标记和跳转
 " m[a-zA-Z] add mark
@@ -140,19 +143,19 @@ Bundle 'vim-scripts/matchit.zip'
 "################### 文本对象 ###################
 
 " 支持自定义文本对象
-Bundle 'kana/vim-textobj-user.git'
+"Bundle 'kana/vim-textobj-user.git'
 " 增加行文本对象: l   dal yal cil
-Bundle 'kana/vim-textobj-line'
+"Bundle 'kana/vim-textobj-line'
 " 增加文件文本对象: e   dae yae cie
-Bundle 'kana/vim-textobj-entire.git'
+"Bundle 'kana/vim-textobj-entire.git'
 " 增加缩进文本对象: i   dai yai cii - 相同缩进属于同一块
-Bundle 'kana/vim-textobj-indent.git'
+"Bundle 'kana/vim-textobj-indent.git'
 
 "################### 快速选中 ###################
 " 选中区块
-Bundle 'terryma/vim-expand-region'
-map + <Plug>(expand_region_expand)
-map _ <Plug>(expand_region_shrink)
+"Bundle 'terryma/vim-expand-region'
+"map + <Plug>(expand_region_expand)
+"map _ <Plug>(expand_region_shrink)
 
 " 多光标选中编辑
 Bundle 'terryma/vim-multiple-cursors'
@@ -166,51 +169,51 @@ let g:multi_cursor_quit_key='<Esc>'
 "################### 功能相关 ###################
 
 " 文件搜索
-Bundle 'kien/ctrlp.vim'
-let g:ctrlp_map = '<leader>p'
-let g:ctrlp_cmd = 'CtrlP'
-map <leader>f :CtrlPMRU<CR>
-"set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
-let g:ctrlp_custom_ignore = {
-    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
-    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
-    \ }
-"\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
-let g:ctrlp_working_path_mode=0
-let g:ctrlp_match_window_bottom=1
-let g:ctrlp_max_height=15
-let g:ctrlp_match_window_reversed=0
-let g:ctrlp_mruf_max=500
-let g:ctrlp_follow_symlinks=1
+"Bundle 'kien/ctrlp.vim'
+"let g:ctrlp_map = '<leader>p'
+"let g:ctrlp_cmd = 'CtrlP'
+"map <leader>f :CtrlPMRU<CR>
+""set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux"
+"let g:ctrlp_custom_ignore = {
+"    \ 'dir':  '\v[\/]\.(git|hg|svn|rvm)$',
+"    \ 'file': '\v\.(exe|so|dll|zip|tar|tar.gz)$',
+"    \ }
+""\ 'link': 'SOME_BAD_SYMBOLIC_LINKS',
+"let g:ctrlp_working_path_mode=0
+"let g:ctrlp_match_window_bottom=1
+"let g:ctrlp_max_height=15
+"let g:ctrlp_match_window_reversed=0
+"let g:ctrlp_mruf_max=500
+"let g:ctrlp_follow_symlinks=1
 
 " ctrlp插件1 - 不用ctag进行函数快速跳转
-Bundle 'tacahiroy/ctrlp-funky'
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+"Bundle 'tacahiroy/ctrlp-funky'
+"nnoremap <Leader>fu :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
-nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
-let g:ctrlp_funky_syntax_highlight = 1
+"nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
+"let g:ctrlp_funky_syntax_highlight = 1
 
 
 
-let g:ctrlp_extensions = ['funky']
+"let g:ctrlp_extensions = ['funky']
 
 
 
 " git.  git操作还是习惯命令行,vim里面处理简单diff编辑操作
-Bundle 'tpope/vim-fugitive'
+"Bundle 'tpope/vim-fugitive'
 " :Gdiff  :Gstatus :Gvsplit
-nnoremap <leader>ge :Gdiff<CR>
+"nnoremap <leader>ge :Gdiff<CR>
 
 " 同git diff,实时展示文件中修改的行
 " 只是不喜欢除了行号多一列, 默认关闭,gs时打开
-Bundle 'airblade/vim-gitgutter'
-let g:gitgutter_enabled = 0
-let g:gitgutter_highlight_lines = 1
-nnoremap <leader>gs :GitGutterToggle<CR>
+"Bundle 'airblade/vim-gitgutter'
+"let g:gitgutter_enabled = 0
+"let g:gitgutter_highlight_lines = 1
+"nnoremap <leader>gs :GitGutterToggle<CR>
 
 " edit history, 可以查看回到某个历史状态
-Bundle 'sjl/gundo.vim'
-nnoremap <leader>h :GundoToggle<CR>
+"Bundle 'sjl/gundo.vim'
+"nnoremap <leader>h :GundoToggle<CR>
 
 "################### 显示增强 ###################
 
@@ -222,44 +225,44 @@ nnoremap <leader>h :GundoToggle<CR>
 "let g:Powerline_symbols = 'unicode'
 
 " 新的airline配置
-Bundle 'bling/vim-airline'
-if !exists('g:airline_symbols')
-let g:airline_symbols = {}
-endif
-let g:airline_left_sep = '▶'
-let g:airline_left_alt_sep = '❯'
-let g:airline_right_sep = '◀'
-let g:airline_right_alt_sep = '❮'
-let g:airline_symbols.linenr = '¶'
-let g:airline_symbols.branch = '⎇'
+"Bundle 'bling/vim-airline'
+"if !exists('g:airline_symbols')
+"let g:airline_symbols = {}
+"endif
+"let g:airline_left_sep = '▶'
+"let g:airline_left_alt_sep = '❯'
+"let g:airline_right_sep = '◀'
+"let g:airline_right_alt_sep = '❮'
+"let g:airline_symbols.linenr = '¶'
+"let g:airline_symbols.branch = '⎇'
 
 
 "括号显示增强
-Bundle 'kien/rainbow_parentheses.vim'
-let g:rbpt_colorpairs = [
-    \ ['brown',       'RoyalBlue3'],
-    \ ['Darkblue',    'SeaGreen3'],
-    \ ['darkgray',    'DarkOrchid3'],
-    \ ['darkgreen',   'firebrick3'],
-    \ ['darkcyan',    'RoyalBlue3'],
-    \ ['darkred',     'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['brown',       'firebrick3'],
-    \ ['gray',        'RoyalBlue3'],
-    \ ['black',       'SeaGreen3'],
-    \ ['darkmagenta', 'DarkOrchid3'],
-    \ ['Darkblue',    'firebrick3'],
-    \ ['darkgreen',   'RoyalBlue3'],
-    \ ['darkcyan',    'SeaGreen3'],
-    \ ['darkred',     'DarkOrchid3'],
-    \ ['red',         'firebrick3'],
-    \ ]
-let g:rbpt_max = 40
-let g:rbpt_loadcmd_toggle = 0
-au VimEnter * RainbowParenthesesToggle
-au Syntax * RainbowParenthesesLoadRound
-au Syntax * RainbowParenthesesLoadSquare
-au Syntax * RainbowParenthesesLoadBraces
+"Bundle 'kien/rainbow_parentheses.vim'
+"let g:rbpt_colorpairs = [
+"    \ ['brown',       'RoyalBlue3'],
+"    \ ['Darkblue',    'SeaGreen3'],
+"    \ ['darkgray',    'DarkOrchid3'],
+"    \ ['darkgreen',   'firebrick3'],
+"    \ ['darkcyan',    'RoyalBlue3'],
+"    \ ['darkred',     'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['brown',       'firebrick3'],
+"    \ ['gray',        'RoyalBlue3'],
+"    \ ['black',       'SeaGreen3'],
+"    \ ['darkmagenta', 'DarkOrchid3'],
+"    \ ['Darkblue',    'firebrick3'],
+"    \ ['darkgreen',   'RoyalBlue3'],
+"    \ ['darkcyan',    'SeaGreen3'],
+"    \ ['darkred',     'DarkOrchid3'],
+"    \ ['red',         'firebrick3'],
+"    \ ]
+"let g:rbpt_max = 40
+"let g:rbpt_loadcmd_toggle = 0
+"au VimEnter * RainbowParenthesesToggle
+"au Syntax * RainbowParenthesesLoadRound
+"au Syntax * RainbowParenthesesLoadSquare
+"au Syntax * RainbowParenthesesLoadBraces
 
 " 代码缩进
 " https://github.com/nathanaelkane/vim-indent-guides
@@ -282,10 +285,8 @@ let g:solarized_contrast="normal"
 let g:solarized_visibility="normal"
 
 "主题 molokai
-Bundle 'tomasr/molokai'
+"Bundle 'tomasr/molokai'
 "let g:molokai_original = 1
-
-
 
 "################### 快速导航 ###################
 "目录导航
@@ -311,46 +312,46 @@ let g:miniBufExplCycleArround=1
 
 " 默认方向键左右可以切换buffer
 nnoremap <TAB> :MBEbn<CR>
-noremap <leader>bn :MBEbn<CR>
-noremap <leader>bp :MBEbp<CR>
-noremap <leader>bd :MBEbd<CR>
+"noremap <leader>bn :MBEbn<CR>
+"noremap <leader>bp :MBEbp<CR>
+"noremap <leader>bd :MBEbd<CR>
 
 "标签导航
-Bundle 'majutsushi/tagbar'
-nmap <F9> :TagbarToggle<CR>
-let g:tagbar_autofocus = 1
+"Bundle 'majutsushi/tagbar'
+"nmap <F9> :TagbarToggle<CR>
+"let g:tagbar_autofocus = 1
 
 " go语言的tagbar配置
 " 1.install gotags 'go get -u github.com/jstemmer/gotags'
 " 2.make sure `gotags` in you shell PATH, you can call check it with `which gotags`
 " for gotags. work with tagbar
-let g:tagbar_type_go = {
-    \ 'ctagstype' : 'go',
-    \ 'kinds'     : [
-        \ 'p:package',
-        \ 'i:imports:1',
-        \ 'c:constants',
-        \ 'v:variables',
-        \ 't:types',
-        \ 'n:interfaces',
-        \ 'w:fields',
-        \ 'e:embedded',
-        \ 'm:methods',
-        \ 'r:constructor',
-        \ 'f:functions'
-    \ ],
-    \ 'sro' : '.',
-    \ 'kind2scope' : {
-        \ 't' : 'ctype',
-        \ 'n' : 'ntype'
-    \ },
-    \ 'scope2kind' : {
-        \ 'ctype' : 't',
-        \ 'ntype' : 'n'
-    \ },
-    \ 'ctagsbin'  : 'gotags',
-    \ 'ctagsargs' : '-sort -silent'
-\ }
+"let g:tagbar_type_go = {
+"    \ 'ctagstype' : 'go',
+"    \ 'kinds'     : [
+"        \ 'p:package',
+"        \ 'i:imports:1',
+"        \ 'c:constants',
+"        \ 'v:variables',
+"        \ 't:types',
+"        \ 'n:interfaces',
+"        \ 'w:fields',
+"        \ 'e:embedded',
+"        \ 'm:methods',
+"        \ 'r:constructor',
+"        \ 'f:functions'
+"    \ ],
+"    \ 'sro' : '.',
+"    \ 'kind2scope' : {
+"        \ 't' : 'ctype',
+"        \ 'n' : 'ntype'
+"    \ },
+"    \ 'scope2kind' : {
+"        \ 'ctype' : 't',
+"        \ 'ntype' : 'n'
+"    \ },
+"    \ 'ctagsbin'  : 'gotags',
+"    \ 'ctagsargs' : '-sort -silent'
+"\ }
 
 
 " 去除ctags
@@ -393,17 +394,17 @@ let g:tagbar_type_go = {
 "###### Python #########
 
 " python fly check, 弥补syntastic只能打开和保存才检查语法的不足
-Bundle 'kevinw/pyflakes-vim'
-let g:pyflakes_use_quickfix = 0
+"Bundle 'kevinw/pyflakes-vim'
+"let g:pyflakes_use_quickfix = 0
 
 " for python.vim syntax highlight
-Bundle 'hdima/python-syntax'
-let python_highlight_all = 1
+"Bundle 'hdima/python-syntax'
+"let python_highlight_all = 1
 
 "###### Golang #########
 " 1.install golang and install gocode 'go get github.com/nsf/gocode'
 " 2.make sure gocode in your path: `which gocode` (add $GOPATH/bin to you $PATH)
-Bundle 'Blackrush/vim-gocode'
+"Bundle 'Blackrush/vim-gocode'
 "Bundle 'fatih/vim-go.git'
 
 "###### Markdown #########
@@ -429,7 +430,7 @@ Bundle 'Glench/Vim-Jinja2-Syntax'
 
 "for css color
 "not work in iterm2 which termianl selection is not xterm-256
-"Bundle 'ap/vim-css-color'  
+Bundle 'ap/vim-css-color'
 
 Bundle 'gorodinskiy/vim-coloresque'
 

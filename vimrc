@@ -83,8 +83,8 @@ endif
 
 set wildignore=*.swp,*.bak,*.pyc,*.class,.svn
 " 突出显示当前行等
-set cursorcolumn
-set cursorline          " 突出显示当前行
+"set cursorcolumn
+"set cursorline          " 突出显示当前行
 
 
 "设置 退出vim后，内容显示在终端屏幕, 可以用于查看和复制
@@ -142,7 +142,7 @@ set laststatus=2
 "显示行号：
 set number
 " 取消换行。
-set nowrap
+"set nowrap
 
 " 括号配对情况,跳转并高亮一下匹配的括号
 set showmatch
@@ -241,7 +241,7 @@ autocmd! bufwritepost .vimrc source % " vimrc文件修改之后自动加载。 l
 
 " 自动补全配置
 "让Vim的补全菜单行为与一般IDE一致(参考VimTip1228)
-set completeopt=longest,menu
+"set completeopt=longest,menu
 
 " 增强模式中的命令行自动完成操作
 set wildmenu
@@ -346,8 +346,8 @@ cnoremap <C-e> <End>
 " Map <Space> to / (search) and Ctrl-<Space> to ? (backwards search)
 map <space> /
 " 进入搜索Use sane regexes"
-nnoremap / /\v
-vnoremap / /\v
+"nnoremap / /\v
+"vnoremap / /\v
 
 "Keep search pattern at the center of the screen."
 nnoremap <silent> n nzz
@@ -429,16 +429,16 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 "==========================================
 
 " Python 文件的一般设置，比如不要 tab 等
-autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
+"autocmd FileType python set tabstop=4 shiftwidth=4 expandtab ai
 
 " 保存python文件时删除多余空格
 " Delete trailing white space on save, useful for Python and CoffeeScript ;)
-func! DeleteTrailingWS()
-  exe "normal mz"
-  %s/\s\+$//ge
-  exe "normal `z"
-endfunc
-autocmd BufWrite *.py :call DeleteTrailingWS()
+"func! DeleteTrailingWS()
+"  exe "normal mz"
+"  %s/\s\+$//ge
+"  exe "normal `z"
+"endfunc
+"autocmd BufWrite *.py :call DeleteTrailingWS()
 
 " 定义函数AutoSetFileHead，自动插入文件头
 autocmd BufNewFile *.sh,*.py exec ":call AutoSetFileHead()"
@@ -460,7 +460,7 @@ function! AutoSetFileHead()
 endfunc
 
 " F10 to run python script
-nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
+"nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
 
 "==========================================
 " Theme Settings  主题设置
@@ -503,3 +503,8 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
+"设置缩进
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType php setlocal shiftwidth=4 tabstop=4 softtabstop=4
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
