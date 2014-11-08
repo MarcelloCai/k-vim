@@ -1,0 +1,94 @@
+# Basic File Templates
+snippet ci "File Header"
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+endsnippet
+
+snippet cic "Codeignitor Controller File"
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class `!p snip.rv=snip.fn.capitalize().split('.')[0]` extends ${1:CI}_Controller {
+
+    public function ${2:__construct} () {
+        ${3:parent::__construct();}
+    }
+}
+
+/* End of file `!p snip.rv=snip.fn` */
+/* Location: ./${4:application}/controllers/`!p snip.rv=snip.fn` */$0
+endsnippet
+
+snippet cim "Codeignitor Model File"
+<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+class `!p snip.rv=snip.fn.capitalize().split('.')[0]` extends ${1:CI}_Model {
+
+    public function __construct() {
+        parent::__construct();
+    }
+}
+
+/* End of file `!p snip.rv=snip.fn` */
+/* Location: :./${2:application}/models/`!p snip.rv=snip.fn` */$0
+endsnippet
+
+
+# Loader Class
+
+snippet ll "Library Loader"
+${1:$this}->load->library('${2:your_lib}');
+endsnippet
+
+snippet lml "Multiple Library Loader"
+${1:$this}->load->library(array('${2:your_lib}'));
+endsnippet
+
+snippet lv "View Loader"
+${1:$this}->load->view('${2:view}');
+endsnippet
+
+snippet lvd "View Loader With Data"
+${1:$this}->load->view('${2:view}', ${3:$arr_data});
+endsnippet
+
+snippet lm "Model Loader"
+${1:$this}->load->model('${2:your_mdl}');
+endsnippet
+
+snippet lmm "Multiple Model Loader"
+${1:$this}->load->model('${2:your_mdl}');
+endsnippet
+
+snippet lc "Config Loader"
+${1:$this}->load->config('${2:your_config}');
+endsnippet
+
+snippet lvar "Variable Loader"
+${1:$this}->load->vars(${2:$arr_data});
+endsnippet
+
+snippet lh "Helper Loader"
+${1:$this}->load->helper('${2:helper}');
+endsnippet
+
+snippet lmh "Multiple Helper Loader"
+${1:$this}->load->helper(array('${2:helper}'));
+endsnippet
+
+# Database Class
+
+# Input Class
+snippet rt  "The request timestamp"
+${1:$this}->input->server('REQUEST_TIME')$0
+endsnippet
+
+snippet get  "Get values from $_GET"
+${3:$this}->input->get(${2:'${1:key}'})$0
+endsnippet
+
+snippet post  "Get values from $_POST"
+${3:$this}->input->post(${2:'${1:key}'})$0
+endsnippet
+
+# Form Validation
+
+# :vim:ft=snippets:
