@@ -6,15 +6,42 @@ endsnippet
 snippet cic "Codeignitor Controller File"
 <?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
-class `!p snip.rv=snip.fn.capitalize().split('.')[0]` extends ${1:CI}_Controller {
+/**
+ * ${1:description}
+ * @author: caiyilong@ymt360.com
+ * @version: 1.0.0
+ * @since: ${2:datetime}
+ */
+class `!p snip.rv=snip.fn.capitalize().split('.')[0]` extends ${3:CI}_Controller {
 
-    public function ${2:__construct} () {
-        ${3:parent::__construct();}
+    public function __construct() {
+        parent::__construct();
     }
 }
 
 /* End of file `!p snip.rv=snip.fn` */
 /* Location: ./${4:application}/controllers/`!p snip.rv=snip.fn` */$0
+endsnippet
+
+snippet cm "Comment"
+/**
+ * ${1:description}
+ * @author: caiyilong@ymt360.com
+ * @version: 1.0.0
+ * @since: ${2:datetime}
+ */
+endsnippet
+
+snippet pa "Param"
+@param: ${1:type} ${2:name} ${3:description}
+endsnippet
+
+snippet rt "Return"
+@return: ${1:type} ${2:description}
+endsnippet
+
+snippet eg "Example"
+@e.g: ${1:description}
 endsnippet
 
 snippet cim "Codeignitor Model File"
