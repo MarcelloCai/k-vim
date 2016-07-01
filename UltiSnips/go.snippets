@@ -1,60 +1,11 @@
 # Snippets for Go
 
-priority -50
-
-# when to abbriviate and when not?
-# b doesn't work here, because it ignores whitespace
-# optional local name?
-snippet /^import/ "Import declaration" r
 import (
-	"${1:package}"
+    "fmt"
 )
-endsnippet
 
-snippet /^package/ "Package declaration" r
-// Package $1 provides ...
-package ${1:main}
-endsnippet
-
-# Mostly converted from: https://github.com/AlanQuatermain/go-tmbundle
-snippet /^cons/ "Constants declaration" r
-const (
-	${1:constant}${2/(.+)/ /}${2:type} = ${0:value}
-)
-endsnippet
-
-snippet /^con/ "Constant declaration" r
-const ${1:name}${2/(.+)/ /}${2:type} = ${0:value}
-endsnippet
-
-snippet iota "Iota constant generator" b
-const (
-	${1:constant}${2/(.+)/ /}${2:type} = iota
-)
-endsnippet
-
-snippet struct "Struct declaration" b
-type ${1:Struct} struct {
-	${0:${VISUAL}}
-}
-endsnippet
-
-snippet interface "Interface declaration" b
-type ${1:Interface} interface {
-	${0:${VISUAL}}
-}
-endsnippet
-
-# statements
-snippet for "For loop" b
-for ${1:condition}${1/(.+)/ /}{
-	${0:${VISUAL}}
-}
-endsnippet
-
-snippet fori "Integer for loop" b
-for ${1:i} := 0; $1 < ${2:N}; $1++ {
-	${0:${VISUAL}}
+func main(){
+    ${1}
 }
 endsnippet
 
@@ -130,8 +81,26 @@ var (
 )
 endsnippet
 
-snippet json "JSON field"
-\`json:"${1:displayName}"\`
+snippet fpl
+fmt.Println("${1}")
 endsnippet
 
-# vim:ft=snippets:
+snippet fpf
+fmt.Printf("${1}", ${2})
+endsnippet
+
+snippet err
+if err != nil {
+    ${1}
+}
+endsnippet
+
+snippet /*
+/*
+${1}
+
+
+*/
+endsnippet
+
+
